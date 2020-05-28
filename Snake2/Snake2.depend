@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1590627793 source:g:\dev-cpp\snake2\main.cpp
+	<iostream>
+	<cstring>
+	<SDL.h>
+	<time.h>
+	<conio.h>
+	<sstream>
+	"pro2.h"
+
+1590627837 g:\dev-cpp\snake2\pro2.h
+	<iostream>
+	<SDL.h>
+
+1590627804 source:g:\dev-cpp\snake2\pro2.cpp
+	"pro2.h"
+
