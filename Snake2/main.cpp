@@ -36,11 +36,12 @@ ToaDo tuong[1500];
 
 
 void GameAction()
-{
+{   
     for(int i = soDot ; i> 0 ; i--){
         snake[i].a = snake[i-1].a;
         snake[i].b = snake[i-1].b;
     }
+    // quả táo độc	
     if (score % 50 == 0 && score /50 >0 ) {
      if(diChuyen == 0){
         snake[0].b++;
@@ -58,7 +59,9 @@ void GameAction()
         snake[0].a--;
     }
     }
-
+	
+	
+    // khi ăn táo bình thường
     else
      {
     if(diChuyen == 0)
@@ -77,7 +80,9 @@ void GameAction()
     {
         snake[0].b++;
     }}
-
+     
+	
+    // ăn táo
     if(snake[0].a == fruit.a && snake[0].b == fruit.b)
     {
         soDot++;
@@ -93,7 +98,8 @@ void GameAction()
         fruit.b = rand() % rong;
 
     }
-
+    
+    // khi đầu rắn đến giới hạn màn hình bên này thì sẽ xuất hiện lại bên kia
     if(snake[0].a > dai)
     {
         snake[0].a = 0;
@@ -110,6 +116,8 @@ void GameAction()
     {
         snake[0].b = rong;
     }
+	
+    // kiểm tra đầu rắn có va chạm thân không
     for(int i = 1; i< soDot ; i++)
     {
         if(snake[0].a == snake[i].a && snake[0].b == snake[i].b)
@@ -117,12 +125,10 @@ void GameAction()
             gameLost = 1;
         }
     }
+	
+    // kiểm tra đầu rắn va chạm các vật cản không, i <soDot -4 vì ban đầu có 5 đốt ( cả đầu ), số lượng vật cản sẽ bằng số đốt hiện tại trừ 5
     for(int i = 1; i< soDot-4 ; i++)
     {
-        if(snake[0].a == snake[i].a && snake[0].b == snake[i].b)
-        {
-            gameLost = 1;
-        }
         if(snake[0].a == tuong[i-1].a && snake[0].b == tuong[i-1].b)
         {
             gameLost = 1;
@@ -193,6 +199,8 @@ int main(int argc, char* argv[])
             break;
         }
         else {
+		
+	    // khi ăn dc quả thì check = 1; tạo 1 vật cản, vị trí vật cản ngẫu nhiên, không trung vs vị trí đầu rắn
             if(check==1){
                 check=0;
                 do{
